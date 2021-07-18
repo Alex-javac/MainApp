@@ -55,38 +55,7 @@ public class EmployeeControllerTest {
                 .andExpect(forwardedUrl("/WEB-INF/pages/page2.jsp"))
                 .andExpect(view().name("page2"))
                 .andReturn();
-    }
-
-    @Test
-    void checkId() {
 
     }
 
-    @Test
-    void checkGender() {
-    }
-
-    @Test
-    void checkLastName() {
-    }
-
-    @Test
-    void check() {
-    }
-
-    @Test
-    void checkDepartment() {
-    }
-
-    @Test
-    void register() {
-    }
-
-    @Test
-    void checkUserPost() {
-    }
-
-    @Test
-    void delete() {
-    }
 }

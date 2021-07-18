@@ -28,6 +28,7 @@ public class EmployeeController {
         modelAndView.setViewName("index");
         return modelAndView;
     }
+
     @RequestMapping(value = "/check_all", method = RequestMethod.GET)
     public ModelAndView checkAll(@ModelAttribute("empJSP")Employee employee) {
         ModelAndView modelAndView = new ModelAndView();
@@ -91,7 +92,6 @@ public class EmployeeController {
     @RequestMapping(value = "/check-employee", method = RequestMethod.POST)
     public ModelAndView checkUserPost(@ModelAttribute("empJSP") Employee employee) {
         ModelAndView modelAndView = new ModelAndView();
-        System.out.println(employee);
         if(es.addEmployee(employee)){
             modelAndView.setViewName("checkEmployee");
         }else {
@@ -109,4 +109,31 @@ public class EmployeeController {
         modelAndView.addObject("empJSP", employee);
         return modelAndView;
     }
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public ModelAndView update(@ModelAttribute("empJSP")Employee employee) {
+        ModelAndView modelAndView = new ModelAndView();
+        employee = es.getEmployeeById(employee.getEmployeeId());
+        modelAndView.addObject("empJSP", employee);
+        modelAndView.setViewName("update");
+        return modelAndView;
+    }
+    @RequestMapping(value = "/updateEmp", method = RequestMethod.POST)
+    public ModelAndView updateUserPost(@ModelAttribute("empJSP") Employee employee) {
+        ModelAndView modelAndView = new ModelAndView();
+        if(es.update(employee)){
+            modelAndView.setViewName("checkEmployee");
+        }else {
+            modelAndView.setViewName("index");
+        }
+        modelAndView.addObject("empJSP", employee);
+        return modelAndView;
+    }
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public ModelAndView home() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("empJSP", new Employee());
+        modelAndView.setViewName("index");
+        return modelAndView;
+    }
+
 }

@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
@@ -47,8 +46,10 @@
 
 <button onclick="location.href='addEmployee'" class="button">Add Employee</button>
 <br/><h1></h1>
-<button onclick="location.href=''" class="button">update Employee</button>
-<br/><h1></h1>
+<spring:form method="post" modelAttribute="empJSP" action="update">
+    <input class="input" type="number" name="employeeId" placeholder="Update Employee by Id..">
+</spring:form>
+
 <spring:form method="get" modelAttribute="empJSP" action="check_all">
     <button class="button">Show all Employees</button>
 </spring:form>

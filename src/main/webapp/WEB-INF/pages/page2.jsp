@@ -24,7 +24,7 @@
             margin: 8px 0;
             border: none;
             cursor: pointer;
-            width: 100%;
+            width: auto;
         }
 
         button:hover {
@@ -116,8 +116,9 @@
 
 <h2 style="text-align: center; color: darkslategray;">List Employees</h2>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto; position: center">Show</button>
-
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">    Show    </button>
+<br/>
+<button onclick="location.href='index'" class="button" >Back to Home</button>
 <div id="id01" class="modal">
 
     <div class="modal-content animate">

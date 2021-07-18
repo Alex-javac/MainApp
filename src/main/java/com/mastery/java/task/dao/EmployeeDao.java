@@ -28,15 +28,6 @@ public class EmployeeDao implements Dao {
           "employee.date_of_birth " +
           "FROM employee ";
 
-private Integer genderVerification(Gender gender){
-    if(gender.equals(Gender.MALE)){
-       return 1;
-    }else if(gender.equals(Gender.FEMALE)){
-return 2;
-    }else
-        return null;
-
-}
     @Override
     public boolean addEmployee(Employee employee) {
         return jdbcTemplate.update("INSERT INTO employee(first_name, last_name, department_id, job_title, gender, date_of_birth) " +
